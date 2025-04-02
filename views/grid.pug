@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  
+  p Query values: rows=#{query.rows}, cols=#{query.cols}
+
+  - let rows = Number(query.rows)
+  - let cols = Number(query.cols)
+
+  if !Number.isInteger(rows) || !Number.isInteger(cols)
+    p Error: Both rows and columns MUST be integers.
+
+  else if rows < 3 || rows > 13
+    p Error: Rows must be between 3 and 13.
+
+  else if cols < 3 || cols > 13
+    p Error: Columns must be between 3 and 13.
+
+  else
+    table#outer.table.table-bordered
+      - for (let i = 0; i < rows; i++)
+        tr#middle
+          - for (let j = 0; j < cols; j++)
+            td= i - j
