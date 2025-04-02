@@ -1,7 +1,16 @@
-doctype html
+extends layout
 
-html
-  head
-    title Search Results: Instruments
-  body
-    h1 Instruments
+block content 
+  h1= title 
+  p Welcome to #{title}
+
+
+  - var results = [{ name: "Guitar", family: "String", origin_year: 1450 }, { name: "Trumpet", family: "Brass", origin_year: 1500 }, { name: "Clarinet", family: "Woodwind", origin_year: 1690 }]
+
+  div.container-fluid 
+    div.row
+      each instrument in results 
+        div.col-sm-2
+          p Name: #{instrument.name}
+          p Type: #{instrument.family}
+          p Origin Year: #{instrument.origin_year}

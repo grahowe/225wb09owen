@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}. You should be seeing this line right here if I coded this right!
-  button.btn.btn-primary(onclick="faster()") Click Me!
+  button(type="button", class="btn btn-secondary", onclick="faster()") Left
   div#faster add in extra
 
   script.
@@ -15,3 +15,6 @@ block content
       value += amt;
       document.getElementById("faster").textContent = `Faster ${value} times ${amt}`;
     }
+
+  p 
+    a(href="/instruments") View Instrument Search Results
