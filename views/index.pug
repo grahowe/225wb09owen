@@ -3,4 +3,15 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}. You should be seeing this line right here if I coded this right!
-  button(type="button", class="btn btn-secondary") Left
+  button.btn.btn-primary(onclick="faster()") Click Me!
+  div#faster add in extra
+
+  script.
+    let value = 1;
+    let amt = 2;
+
+    function faster() {
+      amt *= 2;
+      value += amt;
+      document.getElementById("faster").textContent = `Faster ${value} times ${amt}`;
+    }
